@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let card of cards$ | async; index as i">
+    Card Number: {{ card.card_number }} Cardholder Name:
+    {{ card.cardholder_name }} Card Issuer: {{ card.issuer }}
+    <a routerLink="{{ i }}">Details</a>
+  </li>
+</ul>
