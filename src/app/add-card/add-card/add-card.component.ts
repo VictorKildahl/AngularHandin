@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-card',
@@ -8,7 +8,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddCardComponent {
   cardForm = this.formBuilder.group({
-    card_number: [''],
+    card_number: ['', [Validators.minLength(7), Validators.maxLength(16)]],
     cardholder_name: [''],
     csc_code: [''],
     expiration_date_month: [''],

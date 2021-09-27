@@ -1,1 +1,71 @@
-<p>Transactions list works!</p>
+<h1>Transactions</h1>
+<div class="overall">
+  <div class="leftCollum">
+    <ul>
+      <h3>All transactions</h3>
+      <li *ngFor="let transation of transactions$ | async; index as i">
+        <div class="transactionstyle">
+          <p>
+            Card Number: {{ transation.credit_card.card_number }} Amount:
+            {{ transation.amount }}
+          </p>
+          <p>Date: {{ transation.date }} Currency: {{ transation.currency }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="rightCollum">
+    <h3>Add transaction</h3>
+    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+      <div class="form-wrapper">
+        <div class="form-div">
+          <label for="credit_card">Credit Card</label>
+          <select
+            class="select-style"
+            formControlName="credit_card"
+            [compareWith]="compareCreditCards"
+            required
+          >
+            <option
+              *ngFor="let credit_card of credit_cards$ | async"
+              [ngValue]="credit_card"
+            >
+              {{ credit_card.card_number }}
+            </option>
+          </select>
+
+          <label for="amount">Amount</label>
+          <input
+            class="input-style"
+            type="number"
+            formControlName="amount"
+            required
+          />
+
+          <label for="currency">Currency</label>
+          <input
+            class="input-style"
+            type="text"
+            formControlName="currency"
+            required
+          />
+
+          <label for="date">Date</label>
+          <input
+            class="input-style"
+            type="text"
+            formControlName="date"
+            required
+          />
+
+          <button type="submit">Submit</button>
+        </div>
+        <div>
+          <h2>Model</h2>
+          <pre>{{ transactionForm.value | json }}</pre>
+          <pre>status: {{ transactionForm.status }}</pre>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

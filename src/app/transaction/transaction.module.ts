@@ -1,17 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { TransactionRoutingModule } from './transaction-routing.module';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ListComponent } from './list/list.component';
-
+import { TransactionRoutingModule } from './transaction-routing.module';
 
 @NgModule({
-  declarations: [
-    ListComponent
-  ],
-  imports: [
-    CommonModule,
-    TransactionRoutingModule
-  ]
+  declarations: [ListComponent],
+  imports: [CommonModule, TransactionRoutingModule, ReactiveFormsModule],
 })
-export class TransactionModule { }
+export class TransactionModule {}

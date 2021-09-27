@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Transaction } from 'projects/models/src/lib/transaction';
 import { Card } from 'projects/models/src/public-api';
 import { Observable } from 'rxjs';
 
@@ -13,5 +14,9 @@ export class CardService {
 
   cards(): Observable<Card[]> {
     return this.http.get<Card[]>(`${this.rootUrl}/credit_cards`);
+  }
+
+  transactions(): Observable<Transaction[]> {
+    return this.http.get<Transaction[]>(`${this.rootUrl}/transactions`);
   }
 }

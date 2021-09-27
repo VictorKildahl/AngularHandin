@@ -1,0 +1,40 @@
+ul {
+  list-style-type: none;
+}
+
+.overall {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.leftCollum {
+  width: 50%;
+}
+
+.rightCollum {
+  width: 50%;
+}
+
+.transactionstyle {
+  background-color: rgb(153, 209, 192);
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.select-style {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.input-style {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 200px;
+}
