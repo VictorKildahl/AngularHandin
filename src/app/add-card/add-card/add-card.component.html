@@ -1,1 +1,56 @@
-<p>add-card works!</p>
+<h1>Add Credit Card</h1>
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <div class="form-wrapper">
+    <label for="card_number">Card Number</label>
+    <input
+      type="number"
+      formControlName="card_number"
+      required
+      minlength="7"
+      maxlength="16"
+    />
+
+    <label for="cardholder_name">Cardholder Name</label>
+    <input type="text" formControlName="cardholder_name" required />
+
+    <label for="csc_code">Csc code</label>
+    <input
+      type="number"
+      formControlName="csc_code"
+      required
+      minlength="3"
+      maxlength="3"
+    />
+
+    <label for="expiration_date_month">Expiration Date Month</label>
+    <input
+      type="number"
+      formControlName="expiration_date_month"
+      required
+      min="1"
+      max="12"
+    />
+
+    <label for="expiration_date_year">Expiration Date Year</label>
+    <input
+      type="number"
+      formControlName="expiration_date_year"
+      required
+      min="1"
+      max="31"
+    />
+
+    <label for="issuer">Issuer</label>
+    <input type="text" formControlName="issuer" />
+
+    <button type="submit">Submit</button>
+  </div>
+</form>
+<h2>Model</h2>
+<pre
+  >{{ cardForm.value | json }}
+</pre>
+<pre>
+status:
+{{ cardForm.status }}
+</pre>

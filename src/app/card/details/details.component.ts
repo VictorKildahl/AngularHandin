@@ -8,12 +8,10 @@ import { CardService } from 'src/app/card.service';
   styleUrls: ['./details.component.scss'],
 })
 export class DetailsComponent implements OnInit {
-  // card$: Observable<Card>;
+  card$: any;
 
   constructor(private cs: CardService, private activatedRoute: ActivatedRoute) {
-    // this.card$ = this.cs.cards(
-    //   // +this.activatedRoute.snapshot.params['id']
-    // );
+    this.card$ = this.activatedRoute.snapshot.params;
   }
 
   ngOnInit(): void {}

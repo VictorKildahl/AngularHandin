@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Card } from 'projects/models/src/public-api';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { CardService } from 'src/app/card.service';
@@ -13,8 +15,12 @@ export class ListComponent implements OnInit {
   cards$: Observable<any[]>;
   error = '';
 
-  constructor(private cs: CardService) {
+  constructor(private cs: CardService, private router: Router) {
     this.cards$ = this.cs.cards();
+  }
+
+  navigateToDetails(index: Number, card: Card) {
+    this.router.navigate(['/details/' + index, card]);
   }
 
   ngOnInit(): void {
