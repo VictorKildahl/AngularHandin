@@ -16,6 +16,10 @@ export class CardService {
     return this.http.get<Card[]>(`${this.rootUrl}/credit_cards`);
   }
 
+  removeCreditCard(card: Card): Observable<Card[]> {
+    return this.http.delete<Card[]>(`${this.rootUrl}/credit_cards`);
+  }
+
   transactions(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>(`${this.rootUrl}/transactions`);
   }

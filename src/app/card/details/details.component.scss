@@ -1,0 +1,15 @@
+.removeButton {
+  background-color: rgb(230, 197, 197);
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,17 +1,17 @@
 <h1>Credit Card details screen!</h1>
-<div>
-  <p>Card number: {{ card$.card_number }}</p>
-  <p>Cardholder Name: {{ card$.cardholder_name }}</p>
-  <p>Csc Code: {{ card$.csc_code }}</p>
-  <p>Expiration Date Month: {{ card$.expiration_date_month }}</p>
-  <p>Expiration Date Year: {{ card$.expiration_date_year }}</p>
-  <p>Issuer: {{ card$.issuer }}</p>
-  <!-- <a (click)="(removeCreditCard)">Remove credit card</a> -->
-  <!-- <li *ngFor="let card of card$ | async">
-    {{ card.card_number }}
-  </li> -->
-  <!-- <li *ngFor="let transaction of transactions$ | async">
-    {{ transaction.credit_card }} {{ transaction.amount }} {{ transaction.currency }} { transaction.comment }} { transaction.date }}
-    <a routerLink="{{ i }}">Details</a>
-  </li> -->
+<ul>
+  <li *ngFor="let filteredTransaction of filteredTransactions$ | async">
+    {{ filteredTransaction.credit_card.card_number }}
+  </li>
+</ul>
+<div class="centerContent">
+  <p>Card number: {{ card.card_number }}</p>
+  <p>Cardholder Name: {{ card.cardholder_name }}</p>
+  <p>Csc Code: {{ card.csc_code }}</p>
+  <p>Expiration Date Month: {{ card.expiration_date_month }}</p>
+  <p>Expiration Date Year: {{ card.expiration_date_year }}</p>
+  <p>Issuer: {{ card.issuer }}</p>
+  <p class="removeButton" (click)="removeCreditCard(card)">
+    Remove Credit Card
+  </p>
 </div>
