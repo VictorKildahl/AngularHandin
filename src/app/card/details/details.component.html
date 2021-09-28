@@ -12,7 +12,7 @@
   <p>Expiration Date Month: {{ card.expiration_date_month }}</p>
   <p>Expiration Date Year: {{ card.expiration_date_year }}</p>
   <p>Issuer: {{ card.issuer }}</p>
-  <p class="removeButton" (click)="removeCreditCard(card)">
+  <p class="removeButton" (click)="removeCreditCard(card.card_number)">
     Remove Credit Card
   </p>
 </div>

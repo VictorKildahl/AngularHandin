@@ -28,8 +28,8 @@ export class DetailsComponent implements OnInit {
     this.filteredTransactions$ = null;
   }
 
-  removeCreditCard(card: Card) {
-    this.cs.removeCreditCard(card);
+  removeCreditCard(card_number: string) {
+    this.cs.removeCreditCard(card_number);
     this.router.navigate(['/']);
   }
 
