@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CardService } from 'src/app/card.service';
 
 @Component({
   selector: 'app-add-card',
@@ -16,10 +17,11 @@ export class AddCardComponent {
     issuer: [''],
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private cs: CardService) {}
 
   onSubmit() {
+    this.cs.addCard(this.cardForm.value);
     console.log(this.cardForm.value);
-    // Burde ramme et Post endpoint i backenden, lige nu gør den ingenting
+    // Burde ramme et Post endpoint i backenden, har prøvet, tror ikke det virker
   }
 }

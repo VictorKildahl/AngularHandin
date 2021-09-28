@@ -16,6 +16,10 @@ export class CardService {
     return this.http.get<Card[]>(`${this.rootUrl}/credit_cards`);
   }
 
+  addCard(card: Card): Observable<Card> {
+    return this.http.post<Card>(`${this.rootUrl}/credit_cards`, card);
+  }
+
   removeCreditCard(card_number: string): Observable<Card> {
     return this.http.delete<Card>(
       `${this.rootUrl}/credit_cards/${card_number}`
@@ -24,6 +28,13 @@ export class CardService {
 
   transactions(): Observable<Transaction[]> {
     return this.http.get<Transaction[]>(`${this.rootUrl}/transactions`);
+  }
+
+  addTransaction(transaction: Transaction): Observable<Transaction> {
+    return this.http.post<Transaction>(
+      `${this.rootUrl}/transactions`,
+      transaction
+    );
   }
 
   removeTransaction(transaction: Transaction): Observable<Transaction[]> {

@@ -57,8 +57,9 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit() {
+    this.cs.addTransaction(this.transactionForm.value);
     console.log(this.transactionForm.value);
-    // Burde ramme et Post endpoint i backenden, lige nu gør den ingenting
+    // Burde ramme et Post endpoint i backenden, har prøvet, tror ikke det virker
   }
 }
 
