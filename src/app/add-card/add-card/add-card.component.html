@@ -11,6 +11,7 @@
         minlength="7"
         maxlength="16"
       />
+      <!-- Burde kun tage imod tal, ikke tekst, lav custom validator-->
 
       <label for="cardholder_name">Cardholder Name</label>
       <input
@@ -23,12 +24,13 @@
       <label for="csc_code">Csc code</label>
       <input
         class="input-style"
-        type="number"
+        type="text"
         formControlName="csc_code"
         required
         minlength="3"
         maxlength="3"
       />
+      <!-- Burde kun tage imod tal, ikke tekst, lav custom validator-->
 
       <label for="expiration_date_month">Expiration Date Month</label>
       <input

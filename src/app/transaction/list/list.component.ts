@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Transaction } from 'projects/models/src/lib/transaction';
 import { Card } from 'projects/models/src/public-api';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -28,6 +29,11 @@ export class ListComponent implements OnInit {
     this.credit_cards$ = this.cs.cards();
   }
 
+  removeTransaction(transaction: Transaction) {
+    console.log('Transaction removed');
+    this.cs.removeTransaction(transaction);
+  }
+
   compareCreditCards(c1: Card, c2: Card) {
     return c1 && c2 ? c1.card_number === c2.card_number : c1 === c2;
   }
@@ -52,6 +58,7 @@ export class ListComponent implements OnInit {
 
   onSubmit() {
     console.log(this.transactionForm.value);
+    // Burde ramme et Post endpoint i backenden, lige nu gør den ingenting
   }
 }
 

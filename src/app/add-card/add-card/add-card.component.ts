@@ -10,7 +10,7 @@ export class AddCardComponent {
   cardForm = this.formBuilder.group({
     card_number: ['', [Validators.minLength(7), Validators.maxLength(16)]],
     cardholder_name: [''],
-    csc_code: [''],
+    csc_code: ['', [Validators.minLength(3), Validators.maxLength(3)]],
     expiration_date_month: [''],
     expiration_date_year: [''],
     issuer: [''],
@@ -20,5 +20,6 @@ export class AddCardComponent {
 
   onSubmit() {
     console.log(this.cardForm.value);
+    // Burde ramme et Post endpoint i backenden, lige nu gør den ingenting
   }
 }

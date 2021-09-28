@@ -1,15 +1,22 @@
 <h1>Transactions</h1>
 <div class="overall">
+  <!-- Burde som default at filtrere på credit_card -->
+  <!-- Burde have muligheden for at filtrere transactions -->
   <div class="leftCollum">
     <ul>
       <h3>All transactions</h3>
-      <li *ngFor="let transation of transactions$ | async; index as i">
+      <li *ngFor="let transaction of transactions$ | async; index as i">
         <div class="transactionstyle">
           <p>
-            Card Number: {{ transation.credit_card.card_number }} Amount:
-            {{ transation.amount }}
+            Card Number: {{ transaction.credit_card.card_number }} Amount:
+            {{ transaction.amount }}
           </p>
-          <p>Date: {{ transation.date }} Currency: {{ transation.currency }}</p>
+          <p>
+            Date: {{ transaction.date }} Currency: {{ transaction.currency }}
+          </p>
+          <p class="removeButton" (click)="removeTransaction(transaction)">
+            Remove
+          </p>
         </div>
       </li>
     </ul>

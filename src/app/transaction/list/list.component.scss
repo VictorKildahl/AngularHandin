@@ -19,6 +19,9 @@ ul {
   background-color: rgb(153, 209, 192);
   margin: 10px;
   border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .form-div {
@@ -37,4 +40,14 @@ ul {
   margin-top: 5px;
   margin-bottom: 20px;
   width: 200px;
+}
+
+.removeButton {
+  background-color: rgb(230, 197, 197);
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
