@@ -28,22 +28,24 @@ export class DetailsComponent implements OnInit {
     this.filteredTransactions$ = null;
   }
 
-  removeCreditCard(card_number: string) {
-    this.cs.removeCreditCard(card_number);
-    this.router.navigate(['/']);
+  removeCreditCard(card_number: number) {
+    this.cs.removeCreditCard('' + card_number).subscribe((_) => {
+      this.router.navigate(['/']);
+    });
   }
 
-  //Virker ikke (tag et kig igen næste gang)
+  //Burde The application must implement at least one custom pipe //Er dette nok?
   ngOnInit(): void {
     this.filteredTransactions$ = this.transactions$.pipe(
-      switchMap((x) =>
-        of(
-          x.filter(
-            (x1: Transaction) =>
-              x1.credit_card.card_number === this.card.card_number
-          )
-        )
-      )
+      switchMap((x) => {
+        let res = of(
+          x.filter((x1: Transaction) => {
+            return +x1.credit_card.card_number === +this.card.card_number;
+          })
+        );
+        res.subscribe(console.log);
+        return res;
+      })
     );
   }
 }

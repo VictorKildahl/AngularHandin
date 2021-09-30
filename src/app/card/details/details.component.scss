@@ -13,3 +13,16 @@
   flex-direction: column;
   align-items: center;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.transactionstyle {
+  background-color: rgb(153, 209, 192);
+  margin: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

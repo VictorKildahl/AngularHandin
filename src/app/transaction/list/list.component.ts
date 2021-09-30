@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Transaction } from 'projects/models/src/lib/transaction';
 import { Card } from 'projects/models/src/public-api';
 import { Observable, of } from 'rxjs';
@@ -24,14 +25,19 @@ export class ListComponent implements OnInit {
   credit_cards$: Observable<Card[]>;
   error = '';
 
-  constructor(private cs: CardService, private formBuilder: FormBuilder) {
+  constructor(
+    private cs: CardService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {
     this.transactions$ = this.cs.transactions();
     this.credit_cards$ = this.cs.cards();
   }
 
   removeTransaction(transaction: Transaction) {
-    console.log('Transaction removed');
-    this.cs.removeTransaction(transaction);
+    this.cs.removeTransaction(transaction).subscribe((_) => {
+      this.router.navigate(['/']);
+    });
   }
 
   compareCreditCards(c1: Card, c2: Card) {
@@ -57,9 +63,8 @@ export class ListComponent implements OnInit {
   }
 
   onSubmit() {
-    this.cs.addTransaction(this.transactionForm.value);
+    this.cs.addTransaction(this.transactionForm.value).subscribe();
     console.log(this.transactionForm.value);
-    // Burde ramme et Post endpoint i backenden, har prøvet, tror ikke det virker
   }
 }
 

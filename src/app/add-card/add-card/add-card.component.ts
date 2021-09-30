@@ -20,8 +20,7 @@ export class AddCardComponent {
   constructor(private formBuilder: FormBuilder, private cs: CardService) {}
 
   onSubmit() {
-    this.cs.addCard(this.cardForm.value);
+    this.cs.addCard(this.cardForm.value).subscribe();
     console.log(this.cardForm.value);
-    // Burde ramme et Post endpoint i backenden, har prøvet, tror ikke det virker
   }
 }

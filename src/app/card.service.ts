@@ -38,6 +38,8 @@ export class CardService {
   }
 
   removeTransaction(transaction: Transaction): Observable<Transaction[]> {
-    return this.http.delete<Transaction[]>(`${this.rootUrl}/transactions`);
+    return this.http.delete<Transaction[]>(
+      `${this.rootUrl}/transactions/${transaction}`
+    );
   }
 }

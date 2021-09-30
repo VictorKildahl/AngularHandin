@@ -1,10 +1,4 @@
 <h1>Credit Card details screen!</h1>
-<ul>
-  <li *ngFor="let filteredTransaction of filteredTransactions$ | async">
-    {{ filteredTransaction.credit_card.card_number }}
-  </li>
-</ul>
-<!-- Burde udskrive en liste af alle transactions der hører til dette credit card, fejlen ligger i OnInit -->
 <div class="centerContent">
   <p>Card number: {{ card.card_number }}</p>
   <p>Cardholder Name: {{ card.cardholder_name }}</p>
@@ -15,4 +9,18 @@
   <p class="removeButton" (click)="removeCreditCard(card.card_number)">
     Remove Credit Card
   </p>
+  <ul>
+    <li *ngFor="let filteredTransaction of filteredTransactions$ | async">
+      <div class="transactionstyle">
+        <p>
+          Card Number: {{ filteredTransaction.credit_card.card_number }} Amount:
+          {{ filteredTransaction.amount }}
+        </p>
+        <p>
+          Date: {{ filteredTransaction.date }} Currency:
+          {{ filteredTransaction.currency }}
+        </p>
+      </div>
+    </li>
+  </ul>
 </div>
