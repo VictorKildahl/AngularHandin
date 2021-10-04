@@ -2,18 +2,48 @@ ul {
   list-style-type: none;
 }
 
-.cardsstyle {
-  background-color: rgb(203, 221, 203);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
+// .cardsstyle {
+//   background-color: rgb(203, 221, 203);
+//   padding: 10px;
+//   margin: 10px;
+//   border-radius: 10px;
+// }
+
+// .cardsstyle:hover {
+//   background-color: rgb(255, 194, 172);
+//   padding: 10px;
+//   margin: 10px;
+//   border-radius: 10px;
+// }
+
+@media screen and (max-width: 800px) {
+  .cardsstyle {
+    background-color: rgb(133, 180, 133);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+  .cardsstyle:hover {
+    background-color: rgb(192, 129, 106);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+  }
 }
 
-.cardsstyle:hover {
-  background-color: rgb(255, 194, 172);
-  padding: 10px;
-  margin: 10px;
-  border-radius: 10px;
-}
+@media screen and (min-width: 801px) {
+  .cardsstyle {
+    background-color: rgb(203, 221, 203);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+  }
 
-//burde være responsive, hvis skærmen trækees mindre, skal viewet ændre sig
+  .cardsstyle:hover {
+    background-color: rgb(255, 194, 172);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+}
