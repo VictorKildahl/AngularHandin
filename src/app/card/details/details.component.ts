@@ -34,7 +34,7 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  //Burde The application must implement at least one custom pipe //Er dette nok?
+  //Custom pipe
   ngOnInit(): void {
     this.filteredTransactions$ = this.transactions$.pipe(
       switchMap((x) => {

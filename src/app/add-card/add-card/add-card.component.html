@@ -5,13 +5,13 @@
       <label for="card_number">Card Number</label>
       <input
         class="input-style"
-        type="text"
+        type="number"
         formControlName="card_number"
         required
-        minlength="7"
-        maxlength="16"
+        min="1000000"
+        max="9999999999999999"
       />
-      <!-- Burde kun tage imod tal, ikke tekst, lav custom validator-->
+      <!-- Tager nu imod tal der har en længde på 7 - 16 -->
 
       <label for="cardholder_name">Cardholder Name</label>
       <input
@@ -24,13 +24,13 @@
       <label for="csc_code">Csc code</label>
       <input
         class="input-style"
-        type="text"
+        type="number"
         formControlName="csc_code"
         required
-        minlength="3"
-        maxlength="3"
+        min="100"
+        max="999"
       />
-      <!-- Burde kun tage imod tal, ikke tekst, lav custom validator-->
+      <!-- Tager nu imod tal der har en længde på 3 -->
 
       <label for="expiration_date_month">Expiration Date Month</label>
       <input
