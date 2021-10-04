@@ -1,4 +1,5 @@
 <div class="firstDiv">
+  <h3>List is responsive at 800px</h3>
   <ul>
     <li *ngFor="let card of cards$ | async; index as i">
       <div class="cardsstyle" (click)="navigateToDetails(i, card)">
