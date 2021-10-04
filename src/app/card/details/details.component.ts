@@ -34,7 +34,6 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  //Custom pipe
   ngOnInit(): void {
     this.filteredTransactions$ = this.transactions$.pipe(
       switchMap((x) => {

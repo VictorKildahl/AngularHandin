@@ -1,11 +1,26 @@
 <h1>Transactions</h1>
 <div class="overall">
-  <!-- Burde som default at filtrere på credit_card -->
-  <!-- Burde have muligheden for at filtrere transactions -->
   <div class="leftCollum">
+    <form #f="ngForm">
+      <label for="credit_card">Filter based on Credit Card </label>
+      <select class="select-style" required ngModel name="value">
+        <option
+          *ngFor="let credit_card of credit_cards$ | async"
+          [ngValue]="credit_card"
+        >
+          {{ credit_card.card_number }}
+        </option>
+      </select>
+    </form>
     <ul>
       <h3>All transactions</h3>
-      <li *ngFor="let transaction of transactions$ | async; index as i">
+      <li
+        *ngFor="
+          let transaction of transactions$
+            | async
+            | filterTransaction: f.value.value.card_number
+        "
+      >
         <div class="transactionstyle">
           <p>
             Card Number: {{ transaction.credit_card.card_number }} Amount:
