@@ -2,7 +2,7 @@
   <h3>List is responsive at 800px</h3>
   <ul>
     <li *ngFor="let card of cards$ | async; index as i">
-      <div class="cardsstyle" (click)="navigateToDetails(i, card)">
+      <div ngClass="cardsstyle" (click)="navigateToDetails(i, card)">
         Card Number: {{ card.card_number }} Cardholder Name:
         {{ card.cardholder_name }} Card Issuer: {{ card.issuer }}
       </div>

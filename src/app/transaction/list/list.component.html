@@ -3,7 +3,7 @@
   <div class="leftCollum">
     <form #f="ngForm">
       <label for="credit_card">Filter based on Credit Card </label>
-      <select class="select-style" required ngModel name="value">
+      <select class="select-style" required ngModel name="test">
         <option
           *ngFor="let credit_card of credit_cards$ | async"
           [ngValue]="credit_card"
@@ -12,13 +12,14 @@
         </option>
       </select>
     </form>
+
     <ul>
       <h3>All transactions</h3>
       <li
         *ngFor="
           let transaction of transactions$
             | async
-            | filterTransaction: f.value.value.card_number
+            | filterTransaction: f.value.test.card_number
         "
       >
         <div class="transactionstyle">
@@ -36,6 +37,7 @@
       </li>
     </ul>
   </div>
+
   <div class="rightCollum">
     <h3>Add transaction</h3>
     <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">

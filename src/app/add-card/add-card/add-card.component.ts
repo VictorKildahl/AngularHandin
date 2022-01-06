@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CardService } from 'src/app/card.service';
+import { CardService } from 'src/app/card/card.service';
 
 @Component({
   selector: 'app-add-card',

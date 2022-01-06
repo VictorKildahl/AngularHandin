@@ -4,7 +4,7 @@ import { Transaction } from 'projects/models/src/lib/transaction';
 import { Card } from 'projects/models/src/public-api';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { CardService } from 'src/app/card.service';
+import { CardService } from '../card.service';
 
 @Component({
   selector: 'app-details',
